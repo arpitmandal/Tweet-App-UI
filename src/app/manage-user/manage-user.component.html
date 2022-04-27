@@ -1,0 +1,82 @@
+<div class="card">
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <form [formGroup]="userFormGroup" (ngSubmit)="onSubmit()" >
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" formControlName="first_Name" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.first_Name.errors }" />
+                        <div *ngIf="submitted && f.first_Name.errors" class="invalid-feedback">
+                            <div *ngIf="f.first_Name.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" formControlName="last_Name" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.last_Name.errors }" />
+                        <div *ngIf="submitted && f.last_Name.errors" class="invalid-feedback">
+                            <div *ngIf="f.last_Name.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select formControlName="gender" class="form-control">
+                            <option *ngFor="let gender of genders" [value]="gender">
+                                {{gender}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date Of Birth</label>
+                        <input type="date" formControlName="dateOfBirth" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" />
+                        <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+                            <div *ngIf="f.dateOfBirth.errors.required">DOB is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" formControlName="email" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Invalid Email</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" formControlName="password" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button [disabled]="submitted" class="btn btn-primary">
+                            Register
+                        </button>
+                        <br><br>OR<br><br>
+                        <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998"
+                            (click)="setTab(1,'login')" role="button">
+                            <i class=""></i>Login
+                        </a>
+                    </div>
+                    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+

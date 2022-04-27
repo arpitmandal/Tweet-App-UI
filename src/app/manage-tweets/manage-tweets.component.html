@@ -1,0 +1,18 @@
+<h4 class="card-header">My Timeline</h4>
+
+<div class="container">
+    <form [formGroup]="postTweetForm" >
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <img src="https://source.unsplash.com/random?sig=1" class="img-fluid img-thumbnail" alt="..." height="100px" width="100px">
+            </div>
+            <div class="col-lg-8 col-md-8 mt-4 col-sm-8">
+                <textarea class="form-control" cols="8" rows="4" formControlName="tweetCtrl"></textarea>
+                <button class="btn btn-primary mt-2" (click)="AddTweet()">Tweet</button>
+            </div>
+        </div>
+        <div *ngIf="message" class="alert alert-success">{{message}}</div>
+    </form>
+    <app-show-tweets></app-show-tweets>
+</div>  
+
