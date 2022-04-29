@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseurl : "http://localhost:5000"
+  baseurl : "https://tweetappapidotnet.azurewebsites.net"
 };
 
 /*
